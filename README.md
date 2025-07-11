@@ -3,13 +3,16 @@
 ![Netflix Logo](https://github.com/i-am-rahularora5504/netflix_sql_project/blob/main/hqdefault.jpg)
 
 ## Objective 
-Analyze the distribution between content types.
-Identify the most common ratings for Movies and TV Shows.
-List and Analyze contet Based on release years ,country and duration.
+- Analyze the distribution between content types.
+- Identify the most common ratings for Movies and TV Shows.
+- List and Analyze contet Based on release years ,country and duration.
 
-
+**DataSet
 
 -- Netflix Project
+
+
+'''sql
 create table netflix(
 show_id	varchar(10),
 type varchar(10),
@@ -29,7 +32,7 @@ SELECT * FROM NETFLIX;
 SELECT COUNT(*) as total_rows from netflix;
 SELECT DISTINCT TYPE FROM netflix;
 select count(type) from netflix;
-select count(distinct type ) from netflix;
+select count(distinct type ) from netflix; '''
 
 --10 BUSINESS PROBLEMS
 
