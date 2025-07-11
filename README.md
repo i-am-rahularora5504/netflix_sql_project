@@ -99,9 +99,6 @@ group by 1
 order by 2 desc
 LIMIT 5
 ;
-
-'select UNNEST(STRING_TO_ARRAY(country,',')) 
-as new_country from netflix'
 ```
 
 5.**Identify the longest movie**:
