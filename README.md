@@ -1,5 +1,7 @@
 # Netflix Movie and Tv Subscription
 
+![Netflix Logo](https://github.com/i-am-rahularora5504/netflix_sql_project/blob/main/hqdefault.jpg)
+
 ## Objective 
 Analyze the distribution between content types.
 Identify the most common ratings for Movies and TV Shows.
