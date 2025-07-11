@@ -10,10 +10,9 @@ This SQL-based data analysis project explores Netflix's content library to uncov
 - Identify the most common ratings for Movies and TV Shows.
 - List and Analyze contet Based on release years ,country and duration.
 
-**Netflix DataSet**: C:\Users\Rahul Arora\Desktop\Netflix Dataset\netflix_titles.csv
-
 -- Netflix Project
 
+--Creating Table 'netflix'
 ```sql
 create table netflix(
 show_id	varchar(10),
@@ -29,8 +28,9 @@ duration  VARCHAR(15),
 listed_in	VARCHAR(100),
 description VARCHAR(250)
 );
-
-
+```
+--Select Queries
+```sql
 SELECT * FROM NETFLIX;
 SELECT COUNT(*) as total_rows from netflix;
 SELECT DISTINCT TYPE FROM netflix;
