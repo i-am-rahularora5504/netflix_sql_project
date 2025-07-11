@@ -10,7 +10,7 @@ This SQL-based data analysis project explores Netflix's content library to uncov
 - Identify the most common ratings for Movies and TV Shows.
 - List and Analyze contet Based on release years ,country and duration.
 
--- Netflix Project
+## Netflix Project
 
 --Creating Table 'netflix'
 ```sql
