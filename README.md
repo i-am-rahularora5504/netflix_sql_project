@@ -7,12 +7,11 @@
 - Identify the most common ratings for Movies and TV Shows.
 - List and Analyze contet Based on release years ,country and duration.
 
-**DataSet
+**Netflix DataSet**:
 
 -- Netflix Project
 
-
-'''sql
+```sql
 create table netflix(
 show_id	varchar(10),
 type varchar(10),
@@ -28,25 +27,30 @@ listed_in	VARCHAR(100),
 description VARCHAR(250)
 );
 
+
 SELECT * FROM NETFLIX;
 SELECT COUNT(*) as total_rows from netflix;
 SELECT DISTINCT TYPE FROM netflix;
 select count(type) from netflix;
-select count(distinct type ) from netflix; '''
+select count(distinct type ) from netflix;
+```
 
---10 BUSINESS PROBLEMS
+###10 BUSINESS PROBLEMS
 
--- 1.Count the number of Movies vs TV shows.
+**1.Count the number of Movies vs TV shows**:
+
+```sql
 
 SELECT 
      type,
      COUNT(*) as total_content 
 FROM netflix 
 group by type;
+```
 
--- 2.Find the most common rating for Movies and TV shows.
+2.**Find the most common rating for Movies and TV shows**:
 
-
+```sql
 SELECT
      type,
 	 rating
@@ -69,9 +73,10 @@ where ranking =1;
 	 as ranking
 from netflix 
 group by type,rating'
+```
 
---3.List all the movies released in a specific year(e.g.,2020)
-
+3.**List all the movies released in a specific year(e.g.,2020)**:
+```sql
 select 
      type,
      title,
@@ -79,9 +84,10 @@ select
 from netflix	 
 where type='Movie'and release_year=2020
 ;
+```
 
---4.Find the top 5 countries with most content on netflix.
-
+4.**Find the top 5 countries with most content on netflix**:
+```sql
 select 
      UNNEST(STRING_TO_ARRAY(country,',')) as new_country,
 	 count(show_id) AS TOTAL_CONTENT
@@ -90,34 +96,36 @@ group by 1
 order by 2 desc
 LIMIT 5
 ;
+```
 
 'select UNNEST(STRING_TO_ARRAY(country,',')) 
 as new_country from netflix'
 
---5.Identify the longest movie.
-
+5.**Identify the longest movie**:
+```sql
 select type,
        title,
        duration 
 from netflix where type='Movie'
 and duration = (Select max(duration) from netflix);
-
---6.Find content added in last five years.
-
+```
+6.**Find content added in last five years**:
+```sql
 select * 
 from netflix 
 where TO_DATE(date_added,'MONTH, DD YYYY') >= CURRENT_DATE - INTERVAL'5 years'
+```
 
 --Select CURRENT_DATE - INTERVAL'5 years'
 
---7.Find all the movie , TV shows by director 'Rajiv Chilaka'
-
+7.**Find all the movie , TV shows by director 'Rajiv Chilaka'**:
+```sql
 Select type,title,director
 from netflix 
 where director ILIKE '%Rajiv Chilaka%';
-
---8.List all tv shows with more than 5 seasons.
-
+```
+8.**List all tv shows with more than 5 seasons**:
+```sql
 Select 
      type,
 	 title,
@@ -127,17 +135,19 @@ where type ='TV Show'
 and
 duration > '5 Seasons'
 order by duration;
+```
 
---9.Find the number of content items in each genre .
+9.**Find the number of content items in each genre**:
+```sql
 select 
      UNNEST(STRING_TO_ARRAY(listed_in,',')) as genre,
 	 count(show_id)
 from netflix
 group by 1
 order by 2;
-
---10.FInd the average number of content release in India each year . 
-
+```
+10.**FInd the average number of content release in India each year**:
+```sql
 Select 
      Extract (YEAR from TO_DATE(date_added,'MONTH, DD YYYY')) as year,
 	 COUNT(Show_id) as num_content,
@@ -146,7 +156,7 @@ Select
 from netflix
 where country ='India'
 group by 1;
-
+```
 
 
 
