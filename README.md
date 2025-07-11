@@ -1,4 +1,4 @@
-# Netflix Movie and Tv Subscription
+# Netflix Movie and TV Shows Data Analysis by SQL
 
 ![Netflix Logo](https://github.com/i-am-rahularora5504/netflix_sql_project/blob/main/hqdefault.jpg)
 
