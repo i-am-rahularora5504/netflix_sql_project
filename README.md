@@ -29,7 +29,7 @@ SELECT DISTINCT TYPE FROM netflix;
 select count(type) from netflix;
 select count(distinct type ) from netflix;
 
---15 BUSINESS PROBLEMS
+--10 BUSINESS PROBLEMS
 
 -- 1.Count the number of Movies vs TV shows.
 
